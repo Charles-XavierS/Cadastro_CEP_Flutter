@@ -1,9 +1,9 @@
-class CadastroBack4AppCEP {
+class CadastroBack4AppCEPModel {
   List<Cadastros> cadastros = [];
 
-  CadastroBack4AppCEP(this.cadastros);
+  CadastroBack4AppCEPModel(this.cadastros);
 
-  CadastroBack4AppCEP.fromJson(Map<String, dynamic> json) {
+  CadastroBack4AppCEPModel.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {
       cadastros = <Cadastros>[];
       json['results'].forEach((v) {
