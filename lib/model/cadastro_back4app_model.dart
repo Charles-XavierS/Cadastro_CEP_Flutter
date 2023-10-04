@@ -33,6 +33,8 @@ class CadastroBack4AppCEPModel {
   }
 
   toCreateJson() {}
+
+  where(bool Function(dynamic c) param0) {}
 }
 
 class Cadastros {
