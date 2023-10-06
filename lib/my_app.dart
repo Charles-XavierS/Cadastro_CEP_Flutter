@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Cadastro de endereços',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.yellow),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal),
       ),
       home: const HomePage(),
     );
