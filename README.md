@@ -1,16 +1,40 @@
-# cadastro_cep
 
-A new Flutter project.
+# Cadastros de endereços
 
-## Getting Started
+### Bootcamp Santander 2023 - Flutter
 
-This project is a starting point for a Flutter application.
+Repositório do bootcamp de Flutter do Santander com a plataforma DIO.
 
-A few resources to get you started if this is your first Flutter project:
+Este projeto é um aplicativo Flutter que permite que os usuários cadastrem endereços usando o CEP. O aplicativo consome a API ViaCEP para obter as informações do endereço e usa o Back4App para salvar, editar e excluir os cadastros de endereço.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Rodando localmente
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Clone o projeto
+
+```bash
+  git clone git@github.com:Charles-XavierS/Cadastro_CEP_Flutter.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd Cadastro_CEP_Flutter
+```
+
+Instale as dependências
+
+```bash
+  flutter pub get
+```
+
+Inicie o Emulador ou Conecte um Dispositivo Físico
+
+```bash
+  Você pode usar um emulador Android/iOS ou conectar um dispositivo físico ao computador para executar a aplicação. Certifique-se de que o emulador esteja em execução ou que o dispositivo físico esteja conectado e configurado para depuração.
+```
+
+Execute o Projeto
+
+```bash
+  flutter run
+```
