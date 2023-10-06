@@ -29,9 +29,8 @@ Instale as dependências
 
 Inicie o Emulador ou Conecte um Dispositivo Físico
 
-```bash
   Você pode usar um emulador Android/iOS ou conectar um dispositivo físico ao computador para executar a aplicação. Certifique-se de que o emulador esteja em execução ou que o dispositivo físico esteja conectado e configurado para depuração.
-```
+
 
 Execute o Projeto
 
