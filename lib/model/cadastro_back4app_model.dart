@@ -12,6 +12,8 @@ class CadastroBack4AppCEPModel {
     }
   }
 
+  get objectId => null;
+
   get cep => null;
 
   get logradouro => null;
@@ -33,9 +35,12 @@ class CadastroBack4AppCEPModel {
   }
 
   toCreateJson() {}
+
+  where(bool Function(dynamic c) param0) {}
 }
 
 class Cadastros {
+  String? objectId = '';
   int cep = 0;
   String logradouro = '';
   int numero = 0;
@@ -44,8 +49,8 @@ class Cadastros {
   String localidade = '';
   String estado = '';
 
-  Cadastros(
-      {
+  Cadastros({
+    this.objectId,
     required this.cep,
     required this.logradouro,
     required this.numero,
@@ -66,6 +71,7 @@ class Cadastros {
   });
 
   Cadastros.fromJson(Map<String, dynamic> json) {
+    objectId = json['objectId'];
     cep = json['cep'];
     logradouro = json['logradouro'];
     numero = json['numero'];
@@ -77,6 +83,7 @@ class Cadastros {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['objectId'] = objectId;
     data['cep'] = cep;
     data['logradouro'] = logradouro;
     data['numero'] = numero;
@@ -89,6 +96,7 @@ class Cadastros {
 
   Map<String, dynamic> toCreateJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['objectId'] = objectId;
     data['cep'] = cep;
     data['logradouro'] = logradouro;
     data['numero'] = numero;
