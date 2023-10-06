@@ -72,7 +72,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           labelText: widget.labelText,
           counterText: '',
           labelStyle: TextStyle(
-            color: _isFocused ? Colors.blue : Colors.grey,
+            color: _isFocused
+                ? Colors.blue
+                : const Color.fromARGB(255, 49, 49, 49),
           ),
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(5)),
