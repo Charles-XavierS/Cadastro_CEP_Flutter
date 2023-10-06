@@ -23,7 +23,6 @@ class _CadastroPageState extends State<CadastroPage> {
   final TextEditingController _bairroController = TextEditingController();
   final TextEditingController _cidadeController = TextEditingController();
   final TextEditingController _estadoController = TextEditingController();
-  final String _mensagem = "";
 
   @override
   void initState() {
@@ -74,7 +73,7 @@ class _CadastroPageState extends State<CadastroPage> {
       estado: _estadoController.text,
     ));
 
-    mostrarDialog("Endereço salvo", "Endereço salvo com sucesso!");
+    mostrarDialog("Cadastro realizado", "Endereço salvo com sucesso!");
 
     setState(() {
       _cepController.clear();
@@ -88,12 +87,31 @@ class _CadastroPageState extends State<CadastroPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(titulo),
-          content: Text(mensagem),
+          buttonPadding: const EdgeInsets.all(13),
+          title: Text(
+            titulo,
+            style: const TextStyle(fontWeight: FontWeight.w600),
+          ),
+          content: Text(
+            mensagem,
+            style: const TextStyle(fontSize: 18),
+          ),
           actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("Ok"),
+            Center(
+              child: TextButton(
+                style: const ButtonStyle(
+                    padding: MaterialStatePropertyAll(
+                        EdgeInsets.symmetric(horizontal: 35, vertical: 12)),
+                    backgroundColor: MaterialStatePropertyAll(Colors.teal)),
+                onPressed: () => Navigator.pop(context),
+                child: const Text(
+                  "Ok",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 17,
+                  ),
+                ),
+              ),
             ),
           ],
         );
@@ -108,7 +126,7 @@ class _CadastroPageState extends State<CadastroPage> {
       child: ListView(
         children: [
           CustomTextFormField(
-            labelText: 'Digite o CEP (apenas números)',
+            labelText: 'Digite o CEP (apenas números) *',
             maxLength: 8,
             keyboardType: TextInputType.number,
             controller: _cepController,
@@ -124,15 +142,15 @@ class _CadastroPageState extends State<CadastroPage> {
             },
           ),
           CustomTextFormField(
-            labelText: 'Logradouro',
+            labelText: 'Logradouro *',
             controller: _logradouroController,
-            enabled: false,
+            enabled: true,
           ),
           Row(
             children: [
               Expanded(
                 child: CustomTextFormField(
-                  labelText: 'Número',
+                  labelText: 'Número *',
                   keyboardType: TextInputType.number,
                   controller: _numeroController,
                   enabled: true,
@@ -148,36 +166,48 @@ class _CadastroPageState extends State<CadastroPage> {
             ],
           ),
           CustomTextFormField(
-            labelText: 'Bairro',
+            labelText: 'Bairro *',
             controller: _bairroController,
-            enabled: false,
+            enabled: true,
           ),
           Row(
             children: [
               Expanded(
                 child: CustomTextFormField(
-                  labelText: 'Cidade',
+                  labelText: 'Cidade *',
                   controller: _cidadeController,
-                  enabled: false,
+                  enabled: true,
                 ),
               ),
               Expanded(
                 child: CustomTextFormField(
-                  labelText: 'Estado',
+                  labelText: 'Estado *',
                   controller: _estadoController,
-                  enabled: false,
+                  enabled: true,
                 ),
               ),
             ],
           ),
           ElevatedButton(
             onPressed: () {
-              int? cep = int.tryParse(_cepController.text);
-              verificarCadastro(
-                cep!,
-                int.tryParse(_numeroController.text) ?? 0,
-                _complementoController.text,
-              );
+              if (_cepController.text.isEmpty ||
+                  _logradouroController.text.isEmpty ||
+                  _numeroController.text.isEmpty ||
+                  _bairroController.text.isEmpty ||
+                  _cidadeController.text.isEmpty ||
+                  _estadoController.text.isEmpty) {
+                mostrarDialog(
+                  "Campos vazios",
+                  "Por favor, preencha todos os campos obrigatórios.",
+                );
+              } else {
+                int? cep = int.tryParse(_cepController.text);
+                verificarCadastro(
+                  cep!,
+                  int.tryParse(_numeroController.text) ?? 0,
+                  _complementoController.text,
+                );
+              }
             },
             child: const Text(
               'Salvar',
@@ -185,7 +215,6 @@ class _CadastroPageState extends State<CadastroPage> {
                   fontWeight: FontWeight.w700, fontSize: 17, letterSpacing: 1),
             ),
           ),
-          Text(_mensagem),
         ],
       ),
     );
