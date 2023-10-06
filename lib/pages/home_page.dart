@@ -20,19 +20,6 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: const Text('Cadastro de endereços'),
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Opções'),
-              ),
-            ],
-          ),
-        ),
         body: PageView(
             controller: pageController,
             onPageChanged: (value) {
