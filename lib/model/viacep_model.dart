@@ -24,27 +24,27 @@ class ViaCEPModel {
   });
 
   ViaCEPModel.fromJson(Map<String, dynamic> json) {
-    cep = json['cep'] ?? '-';
-    logradouro = json['logradouro'] ?? '-';
-    complemento = json['complemento'] ?? '-';
-    bairro = json['bairro'] ?? '-';
-    localidade = json['localidade'] ?? '-';
-    uf = json['uf'] ?? '-';
-    ibge = json['ibge'] ?? '-';
-    gia = json['gia'] ?? '-';
-    ddd = json['ddd'] ?? '-';
-    siafi = json['siafi'] ?? '-';
+    cep = json['cep'] ?? '';
+    logradouro = json['logradouro'] ?? '';
+    complemento = json['complemento'] ?? '';
+    bairro = json['bairro'] ?? '';
+    localidade = json['localidade'] ?? '';
+    uf = json['uf'] ?? '';
+    ibge = json['ibge'] ?? '';
+    gia = json['gia'] ?? '';
+    ddd = json['ddd'] ?? '';
+    siafi = json['siafi'] ?? '';
 
-    // Substituir valores vazios por '-'
-    cep = cep.isEmpty ? '-' : cep;
-    logradouro = logradouro.isEmpty ? '-' : logradouro;
-    complemento = complemento.isEmpty ? '-' : complemento;
-    bairro = bairro.isEmpty ? '-' : bairro;
-    localidade = localidade.isEmpty ? '-' : localidade;
-    uf = uf.isEmpty ? '-' : uf;
-    ibge = ibge.isEmpty ? '-' : ibge;
-    gia = gia.isEmpty ? '-' : gia;
-    ddd = ddd.isEmpty ? '-' : ddd;
-    siafi = siafi.isEmpty ? '-' : siafi;
+    // Substituir valores vazios por ''
+    cep = cep.isEmpty ? '' : cep;
+    logradouro = logradouro.isEmpty ? '' : logradouro;
+    complemento = complemento.isEmpty ? '' : complemento;
+    bairro = bairro.isEmpty ? '' : bairro;
+    localidade = localidade.isEmpty ? '' : localidade;
+    uf = uf.isEmpty ? '' : uf;
+    ibge = ibge.isEmpty ? '' : ibge;
+    gia = gia.isEmpty ? '' : gia;
+    ddd = ddd.isEmpty ? '' : ddd;
+    siafi = siafi.isEmpty ? '' : siafi;
   }
 }
